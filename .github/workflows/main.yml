@@ -55,9 +55,9 @@ jobs:
           set -e -o pipefail
           ./cruelbuild config                    \
                        model=${{ matrix.model }} \
-                       name="Eno1305CruelKernel"        \
+                       name="Eno1305CruelKernel" \
                        toolchain=$TOOLCHAIN      \
-                       +magisk                   \
+                       +magisk=canary            \
                        +nohardening              \
                        +ttl                      \
                        +wireguard                \
@@ -65,6 +65,9 @@ jobs:
                        +sdfat                    \
                        +ntfs                     \
                        +force_dex_wqhd           \
+                       +always_permit            \
+                       +fp_boost                 \
+                       +nodebug                  \
                        +morosound                \
                        +boeffla_wl_blocker       \
           2>&1 | tee config.info
